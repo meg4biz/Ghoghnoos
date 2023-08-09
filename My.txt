@@ -1,0 +1,5 @@
+vless://86b16743-8bce-4065-a855-23912b55d157@mtn.ircf.space:443/?type=ws&encryption=none&host=mo3in.imegabiz.workers.dev&path=%2F%3Fed%3D2048&security=tls&sni=mo3in.imegabiz.workers.dev&alpn=http%2F1.1&fp=chrome#%F0%9F%8C%8E%20%7C%20Iranian%20CypherPunks%20%7C%20
+
+vless://86b16743-8bce-4065-a855-23912b55d157@mtnx.ircf.space:443/?type=ws&encryption=none&host=mo3in.imegabiz.workers.dev&path=%2F%3Fed%3D2048&security=tls&sni=mo3in.imegabiz.workers.dev&alpn=http%2F1.1&fp=chrome#%F0%9F%8C%8E%20%7C%20Iranian%20CypherPunks%20%7C%20
+
+vless://86b16743-8bce-4065-a855-23912b55d157@mtnc.ircf.space:443/?type=ws&encryption=none&host=mo3in.imegabiz.workers.dev&path=%2F%3Fed%3D2048&security=tls&sni=mo3in.imegabiz.workers.dev&alpn=http%2F1.1&fp=chrome#%F0%9F%8C%8E%20%7C%20Iranian%20CypherPunks%20%7C%20
