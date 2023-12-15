@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #282c35;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #chat-container {
+            background: #1e2128;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #chat-header {
+            text-align: center;
+            padding: 10px;
+            background-color: #282c35;
+            color: #ccc; /* تغییر رنگ متن به خاکستری */
+            font-size: 1.5em;
+            animation: blink 2s infinite; /* افزودن انیمیشن چشمک زن */
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* افزودن سایه */
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        #chat-box {
+            height: 300px;
+            overflow-y: scroll;
+            padding: 10px;
+            border-bottom: 1px solid #3a3d45;
+        }
+
+        #name-input,
+        #color-select,
+        #message-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #282c35;
+            color: #ffffff;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+
+        #color-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-position: right 10px top 50%;
+            background-repeat: no-repeat;
+        }
+
+        #send-button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+
+        .chat-message {
+            margin-bottom: 5px;
+        }
+
+        .chat-message p {
+            margin: 0;
+        }
+
+        .chat-message-name {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .message-separator {
+            border-top: 1px solid #3a3d45;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">Anonymous Chat Room</div>
+        <div id="chat-box"></div>
+        <input type="text" id="name-input" placeholder="نام دلخواه">
+        <select id="color-select">
+            <option value="#ff0000">قرمز</option>
+            <option value="#00ff00">سبز</option>
+            <option value="#0000ff">آبی</option>
+            <option value="#ffff00">زرد</option>
+            <option value="#ff00ff">صورتی</option>
+            <option value="#00ffff">فیروزه‌ای</option>
+            <option value="#ff9900">نارنجی</option>
+            <option value="#9900cc">بنفش</option>
+            <option value="#669999">خاکستری</option>
+            <option value="#996633">قهوه‌ای</option>
+        </select>
+        <input type="text" id="message-input" placeholder="پیام خود را وارد کنید">
+        <button onclick="sendMessage()" id="send-button">ارسال</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var messageInput = document.getElementById("message-input");
+            var nameInput = document.getElementById("name-input");
+            var colorSelect = document.getElementById("color-select");
+            var chatBox = document.getElementById("chat-box");
+
+            var message = messageInput.value;
+            var name = nameInput.value || "Anonymous";
+            var selectedColor = colorSelect.value || "#ffffff";
+
+            if (message.trim() !== "") {
+                var messageElement = document.createElement("div");
+                messageElement.classList.add("chat-message");
+
+                var nameElement = document.createElement("span");
+                nameElement.classList.add("chat-message-name");
+                nameElement.style.color = selectedColor;
+                nameElement.innerText = name + ": ";
+
+                var textElement = document.createElement("p");
+                textElement.innerText = message;
+
+                messageElement.appendChild(nameElement);
+                messageElement.appendChild(textElement);
+
+                chatBox.appendChild(messageElement);
+
+                // اضافه کردن خط جدا کننده بین پیام‌ها
+                var separatorElement = document.createElement("div");
+                separatorElement.classList.add("message-separator");
+                chatBox.appendChild(separatorElement);
+
+                messageInput.value = "";
+                // اینجا می‌توانید کد ارسال پیام به یک سرور را اضافه کنید.
+            }
+        }
+    </script>
+</body>
+</html>
